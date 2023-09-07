@@ -1,22 +1,66 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+
+  {
+    path: '/home',
     name: 'home',
-    component: HomeView
+    component: () => import('../views/home/index.vue')
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/center',
+    name: 'center',
+    component: () => import('../views/center/index.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login.vue')
+  },
+  // 用户管理
+  {
+    path: '/user-manage/add',
+    name: 'userAdd',
+    component: () => import('../views/user-manage/userAdd.vue')
+  },
+  {
+    path: '/user-manage/list',
+    name: 'userList',
+    component: () => import('../views/user-manage/userList.vue')
+  },
+  // 新闻管理
+  {
+    path: '/news-manage/add',
+    name: 'newsAdd',
+    component: () => import('../views/news-manage/newsAdd.vue')
+  },
+  {
+    path: '/news-manage/list',
+    name: 'newsList',
+    component: () => import('../views/news-manage/newsList.vue')
+  },
+  // 产品管理
+  {
+    path: '/product-manage/add',
+    name: 'productAdd',
+    component: () => import('../views/product-manage/productAdd.vue')
+  },
+  {
+    path: '/product-manage/list',
+    name: 'productList',
+    component: () => import('../views/product-manage/productList.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () => import('../views/notFound.vue')
   }
 ]
 
