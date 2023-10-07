@@ -1,11 +1,12 @@
 <template>
   <div class="layout">
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <el-aside width="200px">
+        <asideMenu></asideMenu>
+      </el-aside>
       <el-container>
         <el-header>Header</el-header>
         <el-main>
-          Main
           <router-view />
         </el-main>
       </el-container>
@@ -14,9 +15,13 @@
 </template>
 
 <script>
+import asideMenu from '@/components/asideMenu.vue'
 export default {
   name: 'CodeProjectLayout',
 
+  components: {
+    asideMenu
+  },
   data() {
     return {}
   },
@@ -37,9 +42,8 @@ export default {
 }
 
 .el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
+  background-color: #fff;
+  color: #fff;
   height: 100vh;
 }
 
